@@ -1,0 +1,67 @@
+<!-- 搜索框 -->
+<search/>
+<!--轮播图 -->
+<!-- indicator-dots:是否显示面板指示点   autoplay：是否自动切换  interval：自动切换间隔时间-->
+<swiper class='lunbo' indicator-dots indicator-dots='true' autoplay='true' interval='4000' indicator-color='rgba(255, 255, 255, .1)' indicator-active-color='#fff'>
+    <block wx:for="{{banner}}" wx:key="{{index}}">
+        <swiper-item>
+            <image src="{{item.image_src}}"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+
+<!-- 分类导航 -->
+<view class="menus">
+    <navigator url="" wx:for="{{menus}}" wx:key="{{index}}">
+        <image src="{{item.image_src}}"></image>
+    </navigator>
+</view>
+
+<!-- 楼层 -->
+<view wx:for="{{floors}}" wx:key="{{index}}">
+    <!-- 广告1 -->
+    <view class="guang-gao">
+        <image mode="aspectFill" src="{{item.floor_title.image_src}}"></image>
+    </view>
+
+    <!-- 优质服饰 -->
+    <view class="costume">
+        <!-- 左侧大图 -->
+        <view class="costume-left">
+            <navigator url>
+                <image src="{{item.product_list[0].image_src}}"></image>
+            </navigator>
+        </view>
+
+        <!-- 右侧小图 -->
+        <view class="costume-right">
+            <navigator wx:for="{{item.product_list}}" wx:key="{{index}}" wx:if="{{index>0}}">
+                <image src="{{item.image_src}}"></image>
+            </navigator>
+        </view>
+
+    </view>
+</view>
+
+<!-- 广告2
+    <view class="guang-gao2">
+        <image src="../../images/guanggao2.png"></image>
+    </view>
+
+    <!-- 勇往直前 -->
+<!-- <view class="exercise">
+        <view class="exercise-left">
+            <image src="../../images/a.png"></image>
+        </view>
+        <view class="exercise-right">
+            <view class="exercise-right-top">
+                <image src="../../images/b.png"></image>
+                <image src="../../images/d.png"></image>
+            </view>
+            <view class="exercise-right-bottom">
+                <image src="../../images/e.png"></image>
+                <image src="../../images/c.png"></image>
+            </view>
+        </view>
+    </view> -->

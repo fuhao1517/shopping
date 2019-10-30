@@ -1,0 +1,21 @@
+/* Components/search/index.js.wxss */
+/* 搜索框 */
+
+.header {
+    padding: 20rpx;
+    background: #ff2d4a;
+}
+
+.header .search-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 3px;
+    height: 65rpx;
+    color: #999;
+}
+
+.header .search-input icon {
+    margin-right: 5px;
+}

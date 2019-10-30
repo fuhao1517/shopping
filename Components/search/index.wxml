@@ -1,0 +1,6 @@
+<!-- 搜索框 -->
+<navigator class="header">
+    <view class="search-input">
+        <icon type="search" size="16" />搜索
+    </view>
+</navigator>
