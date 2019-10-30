@@ -1,2 +1,35 @@
 <!-- 搜索框 -->
 <search/>
+
+
+<!-- 内容 -->
+<view class="container">
+    <!-- 左侧导航 -->
+    <view class="menu-left">
+        <view class="menu-item {{current===index ? 'active' : ''}}" wx:for="{{list}}" wx:key="{{index}}" bindtap="handleClick" data-index="{{index}}">
+            {{item.cat_name}}
+        </view>
+    </view>
+
+    <!-- 右侧品牌列表 -->
+    <view class="content-right">
+
+        <view wx:for="{{list[current].children}}" wx:key="{{index}}">
+            <!-- 标题 -->
+            <view class="title">
+                {{item.cat_name}}
+            </view>
+
+
+            <!-- 品牌列表 -->
+            <view class="brand">
+                <navigator class="brand-item" url="" wx:for="{{item.children}}" wx:key="{{index}}">
+                    <image src="{{item.cat_icon}}"></image>
+                    <view class="text"> {{item.cat_name}}</view>
+                </navigator>
+            </view>
+        </view>
+
+    </view>
+
+</view>
