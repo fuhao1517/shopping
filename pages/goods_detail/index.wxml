@@ -26,4 +26,24 @@
 </view>
 
 <!-- 商品详情, bodes相当于v-html的作用 -->
-<rich-text nodes="{{detail.goods_introduce}}"></rich-text>
+<rich-text class="richtext" nodes="{{detail.goods_introduce}}"></rich-text>
+<!-- 底部按钮 -->
+<view class="footer">
+    <view class="footer-top">促销 <text>满300减30元</text></view>
+    <view class="footer-bottom">
+        <view class="bottom-left">
+            <view>
+                <view class="iconfont icon-kefu"></view>
+                <view>联系客服</view>
+            </view>
+             <view>
+                <view class="iconfont icon-gouwuche"></view>
+                <view>购物车</view>
+            </view>
+        </view>
+        <view class="bottom-right">
+            <view>加入购物车</view>
+            <view>立即购买</view>
+        </view>
+    </view>
+</view>
