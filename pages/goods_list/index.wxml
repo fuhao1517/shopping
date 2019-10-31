@@ -1,0 +1,35 @@
+<!-- 商品列表页 -->
+<!-- 搜索框 -->
+<navigator class="header">
+    <view class="search-input">
+        <icon type="search" size="16" />{{query}}
+    </view>
+</navigator>
+
+
+<!-- 商品列表 -->
+<view class="commodity">
+    <view class="commodity-header">
+        <text class="active">综合</text>
+        <text>销量</text>
+        <text>价格</text>
+    </view>
+
+
+    <navigator 
+    class="commodity-list"
+    url=""
+    wx:for="{{goods}}"
+    wx:key="{{index}}"
+
+    >
+        <image class="commodity-list-left" src="{{item.goods_small_logo}}"></image>
+
+        <view class="commodity-list-right">
+            <view class="text">{{item.goods_name}}</view>
+
+            <view class="commodity-price">￥{{item.goods_price}}</view>
+        </view>
+    </navigator>
+
+</view>

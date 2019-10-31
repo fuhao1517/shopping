@@ -1,0 +1,60 @@
+.header {
+    padding: 20rpx;
+    background: #eee;
+}
+
+.header .search-input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    border-radius: 3px;
+    height: 60rpx;
+    color: #999;
+    padding-left: 20rpx;
+}
+.header .search-input icon{
+    margin-right: 5px;
+}
+
+.commodity .commodity-header {
+    width: 100%;
+    height: 105rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ededed;
+}
+
+.active {
+    color: #ff2d4a;
+}
+
+.commodity-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commodity-list-left {
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.commodity-list-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20rpx;
+}
+
+.commodity-list-right .text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.commodity-price{
+    color:red;
+    font-size: 16px;
+}

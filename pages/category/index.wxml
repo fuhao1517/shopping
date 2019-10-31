@@ -23,7 +23,11 @@
 
             <!-- 品牌列表 -->
             <view class="brand">
-                <navigator class="brand-item" url="" wx:for="{{item.children}}" wx:key="{{index}}">
+                <navigator 
+                class="brand-item" 
+                url="/pages/goods_list/index?query={{item.cat_name}}" 
+                wx:for="{{item.children}}" 
+                wx:key="{{index}}">
                     <image src="{{item.cat_icon}}"></image>
                     <view class="text"> {{item.cat_name}}</view>
                 </navigator>

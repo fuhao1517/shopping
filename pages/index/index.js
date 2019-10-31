@@ -35,7 +35,6 @@ Page({
             const {
                 message
             } = res.data
-            console.log(message)
             this.setData({
                 floors: message
             })
