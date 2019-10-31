@@ -5,7 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        goodsimage:[
+            "https://cdn.pinduoduo.com/home/static/img/subject/furniture.jpg",
+            "https://cdn.pinduoduo.com/home/static/img/subject/furniture.jpg",
+            "https://cdn.pinduoduo.com/home/static/img/subject/furniture.jpg"
+        ]
     },
 
     /**

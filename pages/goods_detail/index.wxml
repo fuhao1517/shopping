@@ -1,2 +1,26 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<!--商品详情页-->
+<!--轮播图 -->
+<!-- indicator-dots:是否显示面板指示点   autoplay：是否自动切换  interval：自动切换间隔时间-->
+<swiper class='lunbo' indicator-dots indicator-dots='true' autoplay='true' interval='4000' indicator-color='rgba(255, 255, 255, .1)' indicator-active-color='#fff'>
+    <block wx:for="{{goodsimage}}" wx:key="{{index}}">
+        <swiper-item>
+            <image mode="aspectFill" src="{{item}}"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 商品信息 -->
+<view class="goods-info">
+    <view class="goods-price">￥279</view>
+    <view class="goods-title">
+        <view class="title-left">
+             想当初，李文彬的革命精神、慷慨激昂的姿态并想当初，李文彬的革命精神、慷慨激昂的姿态并不比他们中的任何人差。
+        </view>
+
+        <view class="collect">
+            <view class="iconfont icon-shoucang"></view>
+            收藏
+        </view>
+    </view>
+    <view class="expressage">快递： 免运费</view>
+</view>
