@@ -40,6 +40,13 @@ Page({
             const {
                 goods
             } = res.data.message
+
+            /* 判断是否到最后一页 */
+            if (goods.length < 10) {
+                this.setData({
+                    hasMore: false
+                })
+            }
             /* 价格保留两位小数点 */
             const newGoods = goods.map(v => {
                 v.goods_price = Number(v.goods_price).toFixed(2)
@@ -56,13 +63,14 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-        
-        /* 请求下一页数据 */
-        this.setData({
-            pagenum: this.data.pagenum + 1
-        })
-        this.getList()
-
+        /* 有更多才加载下一页 */
+        if (this.data.hasMore) {
+            /* 请求下一页数据 */
+            this.setData({
+                pagenum: this.data.pagenum + 1
+            })
+            this.getList()
+        }
     },
 
 
