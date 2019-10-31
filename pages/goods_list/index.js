@@ -6,10 +6,16 @@ Page({
      * 页面的初始数据
      */
     data: {
+        /* 分类页传递过来的参数 */
         query: "",
+        /* 列表数据 */
         goods: [],
+        /* 当前页数 */
         pagenum: 1,
-        hasMore: true
+        /* 是否有更多 */
+        hasMore: true,
+        /* 是否在加载 */
+        loading: false
     },
 
     /**
@@ -29,6 +35,17 @@ Page({
     },
     /* 请求列表数据 */
     getList() {
+        /* 正在加载就不要请求数据数据了 */
+        if (this.data.loading === true) {
+            return;
+        }
+
+        /* 开始加载数据 */
+        this.setData({
+            loading: true
+        })
+
+
         request({
             url: "/api/public/v1/goods/search",
             data: {
@@ -54,7 +71,11 @@ Page({
             })
             /* 赋值给goods */
             this.setData({
-                goods: [...this.data.goods, ...newGoods]
+                goods: [...this.data.goods, ...newGoods],
+                /* 页数加1 */
+                pagenum: this.data.pagenum + 1,
+                /* 请求成功之后吧loading改为false */
+                loading: false
             })
         })
     },
@@ -65,10 +86,6 @@ Page({
     onReachBottom: function() {
         /* 有更多才加载下一页 */
         if (this.data.hasMore) {
-            /* 请求下一页数据 */
-            this.setData({
-                pagenum: this.data.pagenum + 1
-            })
             this.getList()
         }
     },
