@@ -14,7 +14,7 @@
     <view class="goods-price">￥{{detail.goods_price}}</view>
     <view class="goods-title">
         <view class="title-left">
-             {{detail.goods_name}}
+            {{detail.goods_name}}
         </view>
 
         <view class="collect">
@@ -29,17 +29,24 @@
 <rich-text class="richtext" nodes="{{detail.goods_introduce}}"></rich-text>
 <!-- 底部按钮 -->
 <view class="footer">
-    <view class="footer-top">促销 <text>满300减30元</text></view>
+    <view class="footer-top">促销
+        <text>满300减30元</text>
+    </view>
     <view class="footer-bottom">
         <view class="bottom-left">
-            <view>
+            <button class="contact" open-type="contact" type="primary">打开微信原生客服回话</button>
+            <view class="left-item">
                 <view class="iconfont icon-kefu"></view>
                 <view>联系客服</view>
             </view>
-             <view>
-                <view class="iconfont icon-gouwuche"></view>
-                <view>购物车</view>
+
+            <view class="left-item">
+                <navigator url="/pages/cart/index" open-type="switchTab">
+                    <view class="iconfont icon-gouwuche"></view>
+                    <view>购物车</view>
+                </navigator>
             </view>
+
         </view>
         <view class="bottom-right">
             <view>加入购物车</view>
