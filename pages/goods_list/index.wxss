@@ -58,3 +58,8 @@
     color:red;
     font-size: 16px;
 }
+.logind{
+    padding: 20rpx;
+    text-align: center;
+    
+}
