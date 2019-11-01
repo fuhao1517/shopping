@@ -38,6 +38,24 @@ Page({
         })
     },
 
+    /* 点击键盘回车出发 */
+    handleCertain() {
+        console.log(11)
+        /* 先从本地存储拿出来数组，没有的等于空的数组 */
+        const arr = wx.getStorageSync('search') || [];
+
+        /* 判断本地是否有数据，有的话就追加unshift */
+        arr.unshift(this.data.searchValue)
+
+        /* 保存到本地 */
+        wx.setStorageSync('search', arr);
+
+        /* 跳转到搜索列表页 */
+        wx.navigateTo({
+            url:"/pages/goods_list/index?query="+this.data.searchValue
+        })
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */

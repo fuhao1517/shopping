@@ -4,7 +4,8 @@
         <input 
         bindinput="handleInput" 
         placeholder="请输入你想要的商品"
-        value="{{searchValue}}"></input>
+        value="{{searchValue}}"
+        bindconfirm="handleCertain"></input>
     </view>
 
     <view 
