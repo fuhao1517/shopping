@@ -10,7 +10,7 @@
 
 <view class="history">
     <view>历史搜索</view>
-    <icon size="16" type="clear"></icon>
+    <icon bindtap="handleRemove" size="16" type="clear"></icon>
 </view>
 
 

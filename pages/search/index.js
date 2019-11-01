@@ -59,7 +59,13 @@ Page({
             url: "/pages/goods_list/index?query=" + this.data.searchValue
         })
     },
-
+/* 清空历史搜索历史 */
+    handleRemove(){
+        wx.removeStorageSync('search')
+        this.setData({
+            keywords: []
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */
