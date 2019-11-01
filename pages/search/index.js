@@ -7,7 +7,9 @@ Page({
         /* 是否显示取消按钮 */
         displayWay: false,
         /* 输入框的值 */
-        searchValue: ""
+        searchValue: "",
+        /* 搜索历史记录 */
+        keywords: []
     },
 
     /**
@@ -22,19 +24,21 @@ Page({
             value
         } = event.detail
         let displayWay
-        displayWay = value ? true : false
+        displayWay = value.trim() ? true : false
 
         this.setData({
             displayWay,
             /* 输入框的值 */
-            searchValue: value
+            searchValue: value,
+
         })
     },
     /* 点击取消按钮 */
     handleClear() {
         this.setData({
             displayWay: false,
-            searchValue: ""
+            searchValue: "",
+
         })
     },
 
@@ -52,7 +56,7 @@ Page({
 
         /* 跳转到搜索列表页 */
         wx.navigateTo({
-            url:"/pages/goods_list/index?query="+this.data.searchValue
+            url: "/pages/goods_list/index?query=" + this.data.searchValue
         })
     },
 
@@ -60,7 +64,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+      this.setData({
+          keywords: wx.getStorageSync('search') || []
+      })
     },
 
 

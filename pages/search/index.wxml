@@ -1,17 +1,10 @@
 <view class="header">
     <view class="search">
         <icon size="16" type="search"></icon>
-        <input 
-        bindinput="handleInput" 
-        placeholder="请输入你想要的商品"
-        value="{{searchValue}}"
-        bindconfirm="handleCertain"></input>
+        <input bindinput="handleInput" placeholder="请输入你想要的商品" value="{{searchValue}}" bindconfirm="handleCertain"></input>
     </view>
 
-    <view 
-    class="cancel" 
-    wx:if="{{displayWay}}"
-    bindtap="handleClear">取消</view>
+    <view class="cancel" wx:if="{{displayWay}}" bindtap="handleClear">取消</view>
 </view>
 
 
@@ -22,10 +15,9 @@
 
 
 <view class="history-item">
-    <view>小米</view>
-    <view>小米小米小米小米</view>
-    <view>小米小米小米</view>
-    <view>小米小米</view>
-    <view>小米小米小米</view>
-    <view>小米小米小米</view>
+    <navigator 
+    url="/pages/goods_list/index?query={{item}}"
+    class="history-item" 
+    wx:for="{{keywords}}" 
+    wx:key="{{index}}">{{item}}</navigator>
 </view>

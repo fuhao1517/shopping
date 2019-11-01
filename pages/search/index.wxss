@@ -46,7 +46,7 @@
     flex-wrap: wrap;
 }
 
-.history-item view {
+.history-item navigator {
     background: #dedede;
     padding: 5px 10px;
     margin: 5px 8px;
