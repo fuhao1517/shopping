@@ -1,10 +1,10 @@
-.header{
+.header {
     padding: 20rpx;
     background: #efefef;
     display: flex;
-    /* justify-content: space-between; */
 }
-.search{
+
+.search {
     flex: 1;
     background: #fff;
     display: flex;
@@ -13,12 +13,14 @@
     padding: 0 20rpx;
     border-radius: 5px;
 }
-.search icon{
+
+.search icon {
     margin-right: 5px;
-    font-size: 12rpx;
 }
-.cancel{
+
+.cancel {
     width: 120rpx;
+    height: 56rpx;
     margin-left: 20rpx;
     display: flex;
     justify-content: center;
@@ -27,22 +29,25 @@
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
-
 }
-.history{
+
+.history {
     display: flex;
     justify-content: space-between;
     padding: 20rpx;
 }
-.history .icon{
+
+.history .icon {
     font-size: 1px;
 }
+
 .history-item {
     display: flex;
     flex-wrap: wrap;
 }
-.history-item view{
+
+.history-item view {
     background: #dedede;
     padding: 5px 10px;
-    margin:5px 8px;
+    margin: 5px 8px;
 }

@@ -1,10 +1,16 @@
 <view class="header">
     <view class="search">
         <icon size="16" type="search"></icon>
-        <input bindinput="handleInput" placeholder="请输入你想要的商品"></input>
+        <input 
+        bindinput="handleInput" 
+        placeholder="请输入你想要的商品"
+        value="{{searchValue}}"></input>
     </view>
 
-    <view class="cancel" wx:if="{{displayWay}}">取消</view>
+    <view 
+    class="cancel" 
+    wx:if="{{displayWay}}"
+    bindtap="handleClear">取消</view>
 </view>
 
 
