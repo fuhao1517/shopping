@@ -49,10 +49,10 @@
 
         </view>
 
-        <view class="bottom-right">
+        <navigator url="/pages/cart/index"  open-type="switchTab" class="bottom-right"> 
             <view bindtap="handleAddcart">加入购物车</view>
             <view bindtap="handleAddcart">立即购买</view>
-        </view>
+        </navigator>
 
     </view>
 </view>

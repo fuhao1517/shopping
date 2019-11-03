@@ -29,39 +29,16 @@
     <view class="costume">
         <!-- 左侧大图 -->
         <view class="costume-left">
-            <navigator url>
+            <navigator url="">
                 <image src="{{item.product_list[0].image_src}}"></image>
             </navigator>
         </view>
 
         <!-- 右侧小图 -->
         <view class="costume-right">
-            <navigator wx:for="{{item.product_list}}" wx:key="{{index}}" wx:if="{{index>0}}">
+            <navigator url="" wx:for="{{item.product_list}}" wx:key="{{index}}" wx:if="{{index>0}}">
                 <image src="{{item.image_src}}"></image>
             </navigator>
         </view>
-
     </view>
 </view>
-
-<!-- 广告2
-    <view class="guang-gao2">
-        <image src="../../images/guanggao2.png"></image>
-    </view>
-
-    <!-- 勇往直前 -->
-<!-- <view class="exercise">
-        <view class="exercise-left">
-            <image src="../../images/a.png"></image>
-        </view>
-        <view class="exercise-right">
-            <view class="exercise-right-top">
-                <image src="../../images/b.png"></image>
-                <image src="../../images/d.png"></image>
-            </view>
-            <view class="exercise-right-bottom">
-                <image src="../../images/e.png"></image>
-                <image src="../../images/c.png"></image>
-            </view>
-        </view>
-    </view> -->
