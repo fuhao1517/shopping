@@ -41,14 +41,7 @@
                     <view class="price">￥{{item.goods_price}}</view>
                     <view class="price-right">
                         <view class="jian" bindtap="handleReduce" data-id="{{item.goods_id}}">-</view>
-                        <input 
-                        class="num" 
-                        data-id="{{item.goods_id}}" 
-                        value="{{item.number}}"
-                        type="tel"
-                        bindchange="bindChange"
-                        bindinput="bindInput"
-                        ></input>
+                        <input class="num" data-id="{{item.goods_id}}" value="{{item.number}}" type="tel" bindchange="bindChange" bindinput="bindInput"></input>
                         <view class="jia" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
                     </view>
                 </view>
@@ -59,12 +52,12 @@
 </view>
 
 <view class="pay">
-    <icon type="success" color="#ccc" size="14"></icon>
+    <icon bindtap="handleAllSelectedEvent"  type="success" color="{{allSelected?'red':'gray'}}" size="14"></icon>
     <text class="check_all">全选</text>
     <view class="total">
         <view>合计:</view>
         <view>包含运费</view>
     </view>
     <view class="price">￥{{allPrice}}</view>
-    <view class="close">结算(3)</view>
+    <view class="close">结算</view>
 </view>
