@@ -8,6 +8,8 @@ Page({
         site: {},
         /* 购物车商品列表 */
         goods: null,
+        /* 是否选中 */
+        selected: true
     },
     /* 获取收货地址 */
     handleAddress() {
@@ -114,6 +116,21 @@ Page({
             goods
         })
         /* 保存到本地 */
+        wx.setStorageSync("goods", goods)
+    },
+    /* 是否为选中状态 */
+    handleSelected(event) {
+        const {
+            id
+        } = event.target.dataset
+        const {
+            goods
+        } = this.data
+        /* 把选中状态取反 */
+        goods[id].selected = !goods[id].selected
+        this.setData({
+            goods
+        })
         wx.setStorageSync("goods", goods)
     }
 })

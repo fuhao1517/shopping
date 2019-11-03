@@ -30,7 +30,7 @@
 <view wx:if="{{goods}}">
     <view class="goods_lists">
         <view class="goods_list" wx:for="{{goods}}" wx:key="{{index}}">
-            <icon type="success" color="{{item.selected?'red':'gray'}}" size="14"></icon>
+            <icon bindtap="handleSelected" data-id="{{item.goods_id}}" type="success" color="{{item.selected?'red':'gray'}}" size="14"></icon>
 
             <image src="{{item.goods_small_logo}}"></image>
             <view class="goods_rigth">
