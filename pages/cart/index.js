@@ -13,7 +13,7 @@ Page({
         /* 总价格 */
         allPrice: 0,
         /* 是否全选 */
-        allSelected:true
+        allSelected: true
 
     },
     /* 获取收货地址 */
@@ -174,37 +174,73 @@ Page({
         })
     },
     /* 全选状态 */
-    handleAllSelected(){
-        const{goods}=this.data
-        let isSelect=true;
+    handleAllSelected() {
+        const {
+            goods
+        } = this.data
+        let isSelect = true;
         /* 判断是否有一个是没选中 */
-        Object.keys(goods).forEach(v=>{
-            if(!goods[v].selected){
-                isSelect=false;
+        Object.keys(goods).forEach(v => {
+            if (!goods[v].selected) {
+                isSelect = false;
             }
         })
         this.setData({
-            allSelected:isSelect
+            allSelected: isSelect
         })
     },
     /* 点击全选按钮的事件 */
-    handleAllSelectedEvent(){
+    handleAllSelectedEvent() {
         console.log(123)
-        const{goods,allSelected}=this.data;
+        const {
+            goods,
+            allSelected
+        } = this.data;
 
         /* 循环取反选中状态，取反是根据allSelected */
-        Object.keys(goods).forEach(v=>{
-            goods[v].selected=!allSelected
+        Object.keys(goods).forEach(v => {
+            goods[v].selected = !allSelected
         })
         this.setData({
             goods,
             /* 判断全选状态 */
-            allSelected:!allSelected
+            allSelected: !allSelected
         })
         /* 保存到本地 */
-        wx.setStorageSync("goods",goods)
+        wx.setStorageSync("goods", goods)
         /* 计算总价格 */
         this.handleAllPrice()
+    },
+    /* 页面隐藏时候触发 */
+    onHide() {
+        // wx.setStorageSync("goods",goods)
+    },
+    /*结算 */
+    handleSubmit() {
+        const {
+            allPrice,
+            site,
+            goods
+        } = this.data
+
+        /* 提取对象的value合并成数组 */
+        const goodsArr = Object.keys(goods).map(v => {
+            /* 把数量赋值给goods_number，接口需要的 */
+            goods[v].goods_number = goods[v].number
+            return goods[v]
+        })
+        /* 提交订单 */
+        request({
+            url: '/api/public/v1/my/orders/create',
+            data: {
+                order_price: allPrice,
+                //一般情况地址是个对象，而不是一个字符串，接口问题
+                consignee_addr: site.detail, 
+                goods: goodsArr
+            }
+        }).then(res=>{
+            console.log(res)
+        })
     }
 
 })
