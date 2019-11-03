@@ -9,7 +9,9 @@ Page({
         /* 购物车商品列表 */
         goods: null,
         /* 是否选中 */
-        selected: true
+        selected: true,
+        /* 总价格 */
+        allPrice: 0
     },
     /* 获取收货地址 */
     handleAddress() {
@@ -35,6 +37,8 @@ Page({
         this.setData({
             goods
         })
+        /* 计算总价格 */
+        this.handleAllPrice()
     },
     /* 数量加一 */
     handleAdd(event) {
@@ -49,6 +53,8 @@ Page({
             goods
         })
         wx.setStorageSync("goods", goods)
+        /* 计算总价格 */
+        this.handleAllPrice()
     },
     /* 数量减一 */
     handleReduce(event) {
@@ -70,6 +76,8 @@ Page({
                             goods
                         })
                         wx.setStorageSync("goods", goods)
+                        /* 计算总价格 */
+                        this.handleAllPrice()
                     }
                 }
             })
@@ -79,6 +87,8 @@ Page({
                 goods
             })
             wx.setStorageSync("goods", goods)
+            /* 计算总价格 */
+            this.handleAllPrice()
         }
     },
     /* 转换是否有小数点 */
@@ -117,6 +127,8 @@ Page({
         })
         /* 保存到本地 */
         wx.setStorageSync("goods", goods)
+        /* 计算总价格 */
+        this.handleAllPrice()
     },
     /* 是否为选中状态 */
     handleSelected(event) {
@@ -132,5 +144,27 @@ Page({
             goods
         })
         wx.setStorageSync("goods", goods)
+        /* 计算总价格 */
+        this.handleAllPrice()
+    },
+    /* 封装计算总价格的方法 */
+    handleAllPrice() {
+        const {
+            goods
+        } = this.data
+        let price = 0;
+
+        /* 开始计算, v就是key，也就是商品id */
+        Object.keys(goods).forEach(v => {
+            /* 当前商品必须是选中的 */
+            if (goods[v].selected) {
+                /* 单价乘以数量 */
+                price += (goods[v].goods_price * goods[v].number)
+            }
+        })
+        this.setData({
+            allPrice: price
+        })
     }
+
 })

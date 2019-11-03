@@ -65,6 +65,6 @@
         <view>合计:</view>
         <view>包含运费</view>
     </view>
-    <view class="price">￥14110.00</view>
+    <view class="price">￥{{allPrice}}</view>
     <view class="close">结算(3)</view>
 </view>
