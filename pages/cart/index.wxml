@@ -11,7 +11,7 @@
             <text>{{site.userName}}</text>
         </view>
         <view class="telNumber">
-            {{13576299674}}
+            {{site.telNumber}}
           <view class="jiantou"> </view>
         </view>
     </view>
@@ -26,7 +26,7 @@
 </view>
 
 <view class="goods_lists">
-    <view class="goods_list" wx:for="{{[1,1,1,1,1,1,1,1,1,1,1]}}" wx:key="{{index}}">
+    <view class="goods_list">
         <icon type="success" color="#ccc" size="14"></icon>
 
         <image src="https://img12.360buyimg.com/n7/jfs/t1/68144/26/14382/216296/5dbbc9d7Eda10c362/f3213881a4a29773.jpg"></image>

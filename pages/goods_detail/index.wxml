@@ -49,10 +49,10 @@
 
         </view>
 
-        <navigator class="bottom-right" url="">
-            <view>加入购物车</view>
-            <view>立即购买</view>
-        </navigator>
+        <view class="bottom-right">
+            <view bindtap="handleAddcart">加入购物车</view>
+            <view bindtap="handleAddcart">立即购买</view>
+        </view>
 
     </view>
 </view>
