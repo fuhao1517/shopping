@@ -4,13 +4,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-
         /* 收货地址 */
         site: {},
         /* 购物车商品列表 */
         goods: null,
     },
-
     /* 获取收货地址 */
     handleAddress() {
         wx.chooseAddress({
@@ -28,7 +26,6 @@ Page({
                 })
             },
         })
-
     },
     onShow() {
         /* 每次打开页面时都在本地获取购物车的数据 */
@@ -49,14 +46,39 @@ Page({
         this.setData({
             goods
         })
-
         wx.setStorageSync("goods", goods)
     },
-
     /* 数量减一 */
-    handleReduce() {},
+    handleReduce(event) {
+        const {
+            id
+        } = event.target.dataset
+        const {
+            goods
+        } = this.data
+        if (goods[id].number === 1) {
+            wx.showModal({
+                title: '提示',
+                content: '确定删除此商品？',
+                success: (res) => {
+                    if (res.confirm) {
+                        /* 删除商品 */
+                        delete goods[id]
+                        this.setData({
+                            goods
+                        })
+                        wx.setStorageSync("goods", goods)
+                    }
+                }
+            })
+        } else {
+            goods[id].number -= 1
+            this.setData({
+                goods
+            })
+            wx.setStorageSync("goods", goods)
+        }
+    },
     /* 输入框输入事件 */
     handleInput() {}
-
-
 })
