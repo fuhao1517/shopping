@@ -41,7 +41,14 @@
                     <view class="price">￥{{item.goods_price}}</view>
                     <view class="price-right">
                         <view class="jian" bindtap="handleReduce" data-id="{{item.goods_id}}">-</view>
-                        <input class="num" bindtap="handleInput" data-id="{{item.goods_id}}" value="{{item.number}}"></input>
+                        <input 
+                        class="num" 
+                        data-id="{{item.goods_id}}" 
+                        value="{{item.number}}"
+                        type="tel"
+                        bindchange="bindChange"
+                        bindinput="bindInput"
+                        ></input>
                         <view class="jia" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
                     </view>
                 </view>

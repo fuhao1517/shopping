@@ -79,6 +79,41 @@ Page({
             wx.setStorageSync("goods", goods)
         }
     },
-    /* 输入框输入事件 */
-    handleInput() {}
+    /* 转换是否有小数点 */
+    bindInput(event) {
+        /* 获取输入框的值 */
+        const value = +event.detail.value
+        const {
+            id
+        } = event.target.dataset
+        const {
+            goods
+        } = this.data;
+        /* 判断是否有小数点 */
+        goods[id].number = Math.floor(value);
+        /* 修改data的值 */
+        this.setData({
+            goods
+        })
+    },
+    /* 输入框输入数量 */
+    bindChange(event) {
+        /* 获取输入框的值 */
+        const value = +event.detail.value
+        const {
+            id
+        } = event.target.dataset
+        const {
+            goods
+        } = this.data;
+
+        /* 如果是空的或者0 */
+        goods[id].number = value === 0 ? 1 : value
+        /* 修改data的值 */
+        this.setData({
+            goods
+        })
+        /* 保存到本地 */
+        wx.setStorageSync("goods", goods)
+    }
 })
