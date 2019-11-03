@@ -1,6 +1,4 @@
 import request from "../../utils/request.js"
-
-
 Page({
     /**
      * 页面的初始数据
@@ -11,13 +9,7 @@ Page({
         site: {}
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function(options) {
-
-
-    },
+    /* 获取收货地址 */
     handleAddress() {
         wx.chooseAddress({
             success: res => {
@@ -33,10 +25,10 @@ Page({
                     }
                 })
             },
-
         })
 
-    }
+    },
+    
 
 
 })

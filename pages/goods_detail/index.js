@@ -42,17 +42,20 @@ Page({
             goods_price
         } = this.data.detail
 
-        goods[goods_id]={
+        /* 判断商品是否已经在购物车中 */
+        const number = goods[goods_id] ? goods[goods_id].number + 1 : 1;
+
+        goods[goods_id] = {
             goods_id,
             goods_name,
             goods_small_logo,
             goods_price,
 
-            number:1,
-            selected:true
+            number,
+            selected: true
         }
         /* 保存到本地 */
-        wx.setStorageSync("goods",goods)
+        wx.setStorageSync("goods", goods)
     }
 
 
