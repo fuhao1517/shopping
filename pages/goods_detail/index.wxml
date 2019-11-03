@@ -48,9 +48,11 @@
             </view>
 
         </view>
-        <view class="bottom-right">
+
+        <navigator class="bottom-right" url="">
             <view>加入购物车</view>
             <view>立即购买</view>
-        </view>
+        </navigator>
+
     </view>
 </view>

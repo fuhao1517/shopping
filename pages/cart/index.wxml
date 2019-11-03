@@ -1,2 +1,57 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 没有收货地址时 -->
+<view class="address" bindtap="handleAddress" wx:if="{{!site.userName}}">
+    <view>添加收货地址</view>
+    <view class="jiantou"> </view>
+</view>
+
+<!-- 有收货地址时 -->
+<view class="userInfo" wx:if="{{site.userName}}">
+    <view class="userInfo_header">
+        <view>收货人 :
+            <text>{{site.userName}}</text>
+        </view>
+        <view class="telNumber">
+            {{13576299674}}
+          <view class="jiantou"> </view>
+        </view>
+    </view>
+    <view class="site">收货地址：{{site.detail}}</view>
+</view>
+<image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
+
+
+<view class="shop_name">
+    <view class="iconfont icon-dianpu"></view>
+    <view>优购生活馆</view>
+</view>
+
+<view class="goods_lists">
+    <view class="goods_list" wx:for="{{[1,1,1,1,1,1,1,1,1,1,1]}}" wx:key="{{index}}">
+        <icon type="success" color="#ccc" size="14"></icon>
+
+        <image src="https://img12.360buyimg.com/n7/jfs/t1/68144/26/14382/216296/5dbbc9d7Eda10c362/f3213881a4a29773.jpg"></image>
+        <view class="goods_rigth">
+            <view class="goods_list_title">
+                我们调用一下就行了。接口嘛，那就要操作对应的js文件咯
+            </view>
+            <view class="prices">
+                <view class="price">￥279.00</view>
+                <view class="jian">-</view>
+                <view class="num">3</view>
+                <view class="jia">+</view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+<view class="pay">
+    <icon type="success" color="#ccc" size="14"></icon>
+    <text class="check_all">全选</text>
+    <view class="total">
+        <view>合计:</view>
+        <view>包含运费</view>
+    </view>
+    <view class="price">￥14110.00</view>
+    <view class="close">结算(3)</view>
+</view>

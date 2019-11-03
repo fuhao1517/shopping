@@ -1,5 +1,5 @@
 <!-- 搜索框 -->
-<navigator class="header">
+<navigator class="header" url="/pages/search/index">
     <view class="search-input">
         <icon type="search" size="16" />搜索
     </view>

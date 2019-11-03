@@ -24,6 +24,7 @@ Page({
             value
         } = event.detail
         let displayWay
+        /* trim() 去除前后空格 */
         displayWay = value.trim() ? true : false
 
         this.setData({
@@ -38,13 +39,11 @@ Page({
         this.setData({
             displayWay: false,
             searchValue: "",
-
         })
     },
 
     /* 点击键盘回车出发 */
     handleCertain() {
-        console.log(11)
         /* 先从本地存储拿出来数组，没有的等于空的数组 */
         const arr = wx.getStorageSync('search') || [];
 
