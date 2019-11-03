@@ -4,11 +4,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-       
+
         /* 收货地址 */
         site: {},
         /* 购物车商品列表 */
-        goods:null,
+        goods: null,
     },
 
     /* 获取收货地址 */
@@ -30,13 +30,33 @@ Page({
         })
 
     },
-onShow(){
-    /* 每次打开页面时都在本地获取购物车的数据 */
-  const goods=  wx.getStorageSync("goods")||null;
-    this.setData({
-        goods
-    })
-}
+    onShow() {
+        /* 每次打开页面时都在本地获取购物车的数据 */
+        const goods = wx.getStorageSync("goods") || null;
+        this.setData({
+            goods
+        })
+    },
+    /* 数量加一 */
+    handleAdd(event) {
+        const {
+            id
+        } = event.target.dataset
+        const {
+            goods
+        } = this.data
+        goods[id].number += 1
+        this.setData({
+            goods
+        })
+
+        wx.setStorageSync("goods", goods)
+    },
+
+    /* 数量减一 */
+    handleReduce() {},
+    /* 输入框输入事件 */
+    handleInput() {}
 
 
 })

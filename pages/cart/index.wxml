@@ -39,9 +39,11 @@
                 </view>
                 <view class="prices">
                     <view class="price">￥{{item.goods_price}}</view>
-                    <view class="jian">-</view>
-                    <view class="num">{{item.number}}</view>
-                    <view class="jia">+</view>
+                    <view class="price-right">
+                        <view class="jian" bindtap="handleReduce" data-id="{{item.goods_id}}">-</view>
+                        <input class="num" bindtap="handleInput" data-id="{{item.goods_id}}" value="{{item.number}}"></input>
+                        <view class="jia" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
+                    </view>
                 </view>
             </view>
 
