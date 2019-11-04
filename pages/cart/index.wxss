@@ -23,7 +23,6 @@
     display: flex;
     justify-content: space-between;
     padding: 20rpx 0;
-    /* align-items: center; */
 }
 
 .telNumber {
@@ -56,7 +55,7 @@ image {
 }
 
 .goods_lists {
-    /* border-bottom: 20px solid #f5f5f5; */
+    padding-bottom: 80px;
 }
 
 .goods_list {

@@ -54,6 +54,8 @@ Page({
             goods
         } = this.data
         goods[id].number += 1
+
+
         this.setData({
             goods
         })
@@ -66,7 +68,7 @@ Page({
         const {
             id
         } = event.target.dataset
-        const {
+        let {
             goods
         } = this.data
         if (goods[id].number === 1) {
@@ -77,6 +79,11 @@ Page({
                     if (res.confirm) {
                         /* 删除商品 */
                         delete goods[id]
+
+                        /* 判断对象是否为空对象 */
+                        if (Object.keys(goods).length === 0) {
+                            goods = null;
+                        }
                         this.setData({
                             goods
                         })
@@ -191,7 +198,6 @@ Page({
     },
     /* 点击全选按钮的事件 */
     handleAllSelectedEvent() {
-        console.log(123)
         const {
             goods,
             allSelected
@@ -211,36 +217,18 @@ Page({
         /* 计算总价格 */
         this.handleAllPrice()
     },
-    /* 页面隐藏时候触发 */
-    onHide() {
-        // wx.setStorageSync("goods",goods)
-    },
     /*结算 */
     handleSubmit() {
-        const {
-            allPrice,
-            site,
-            goods
-        } = this.data
-
-        /* 提取对象的value合并成数组 */
-        const goodsArr = Object.keys(goods).map(v => {
-            /* 把数量赋值给goods_number，接口需要的 */
-            goods[v].goods_number = goods[v].number
-            return goods[v]
-        })
-        /* 提交订单 */
-        request({
-            url: '/api/public/v1/my/orders/create',
-            data: {
-                order_price: allPrice,
-                //一般情况地址是个对象，而不是一个字符串，接口问题
-                consignee_addr: site.detail, 
-                goods: goodsArr
-            }
-        }).then(res=>{
-            console.log(res)
-        })
+        /*判断本地是否有token，有token就跳转到订单支付页，没有跳转到登录页 */
+        if(wx.getStorageSync("token")){
+            wx.navigateTo({
+                url: '/pages/order_enter/index',
+            })
+        }else{
+            wx.navigateTo({
+                url: '/pages/auth/index',
+            })
+        }
     }
 
 })
