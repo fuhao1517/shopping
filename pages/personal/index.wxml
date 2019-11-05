@@ -1,2 +1,69 @@
-<!--pages/personal/index.wxml-->
-<text>pages/personal/index.wxml</text>
+<!-- 头部 -->
+<view class="header">
+    <open-data type="userAvatarUrl" class="portrait"></open-data>
+    <open-data type="userNickName" class="nickname"></open-data>
+    <view class="iconfont icon-icon_set_up"></view>
+    <view class="iconfont  icon-dakaihuihua"></view>
+</view>
+
+<!-- 收藏的店铺 -->
+<view class="collect">
+    <view class="collect-item">
+        <view>0</view>
+        <view>收藏的店铺</view>
+    </view>
+    <view class="collect-item">
+        <view>0</view>
+        <view>收藏的商品</view>
+    </view>
+    <view class="collect-item">
+        <view>0</view>
+        <view>关注的店铺</view>
+    </view>
+    <view class="collect-item">
+        <view>0</view>
+        <view>我的足迹</view>
+    </view>
+</view>
+
+<view class="footer">
+    <!-- 我的订单 -->
+    <view class="order">
+        <view class="order-top">我的订单</view>
+        <view class="order-bottom">
+            <view class="bottom-item">
+                <view class="iconfont icon-daifukuan"></view>
+                <view>待付款</view>
+            </view>
+            <view class="bottom-item">
+                <view class="iconfont icon-icon3"></view>
+                <view>待收货</view>
+            </view>
+            <view class="bottom-item">
+                <view class="iconfont icon-icon5"></view>
+                <view>退款/退货</view>
+            </view>
+            <view class="bottom-item">
+                <view class="iconfont icon-icon_order"></view>
+                <view>全部订单</view>
+            </view>
+        </view>
+    </view>
+    <!-- 收货地址管理 -->
+    <view class="address" bindtap="handleGetAddress">
+        收货地址管理
+        <view class="jiantou"></view>
+    </view>
+    <!-- 售后服务 -->
+    <view class="after">
+        <view class="service">
+            <view>联系客服</view>
+            <view class="phone">400-618-4000</view>
+        </view>
+        <view class="idea">
+            <view class="idea-top">意见反馈</view>
+            <view class="jiantou"></view>
+        </view>
+    </view>
+
+</view>
