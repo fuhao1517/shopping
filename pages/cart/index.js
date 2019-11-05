@@ -7,7 +7,7 @@ Page({
         /* 收货地址 */
         site: {},
         /* 购物车商品列表 */
-        goods: null,
+        goods: false,
         /* 是否选中 */
         selected: true,
         /* 总价格 */
@@ -31,12 +31,14 @@ Page({
                         detail: res.provinceName + res.cityName + res.countyName + res.detailInfo
                     }
                 })
+                /* 将收货地址保存到本地 */
+                wx.setStorageSync("site", this.data.site);
             },
         })
     },
     onShow() {
         /* 每次打开页面时都在本地获取购物车的数据 */
-        const goods = wx.getStorageSync("goods") || null;
+        const goods = wx.getStorageSync("goods") || false;
         this.setData({
             goods
         })
@@ -82,7 +84,7 @@ Page({
 
                         /* 判断对象是否为空对象 */
                         if (Object.keys(goods).length === 0) {
-                            goods = null;
+                            goods = false;
                         }
                         this.setData({
                             goods
@@ -219,12 +221,37 @@ Page({
     },
     /*结算 */
     handleSubmit() {
+        /* 如果购物车为空则让用户去添加商品 */
+        if (!this.data.goods) {
+            wx.showModal({
+                title: '提示',
+                content: '购物车暂时还没有商品，快去添加吧！',
+                success: (res) => {
+                    if (res.confirm) {
+                        /* wx.switchTab跳转到分类页面 */
+                        wx.switchTab({
+                            url: '/pages/category/index',
+                        })
+                    }
+                }
+            })
+            return;
+        }
+        /* 判断是否有收货地址 */
+        console.log(this.data.site)
+        if(this.data.site==={}){
+            wx.showModal({
+                title: '提示',
+                content: '请选择收货地址！',
+            })
+            return;
+        }
         /*判断本地是否有token，有token就跳转到订单支付页，没有跳转到登录页 */
-        if(wx.getStorageSync("token")){
+        if (wx.getStorageSync("token")) {
             wx.navigateTo({
                 url: '/pages/order_enter/index',
             })
-        }else{
+        } else {
             wx.navigateTo({
                 url: '/pages/auth/index',
             })

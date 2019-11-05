@@ -1,20 +1,6 @@
 import request from "../../utils/request.js"
 Page({
-
-    /**
-     * 页面的初始数据
-     */
-    data: {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function(options) {
-
-    },
-    /* 用户同意授权后的事件方法，获取code所以的前4个参数 */
+    /* 用户同意授权后的事件方法，获取code的前4个参数 */
     handleGetUserInfo(res) {
         const {
             encryptedData,
@@ -40,10 +26,15 @@ Page({
                         code
                     }
                 }).then(res => {
-                    const{token}=res.data.message;
-                    wx.setStorageSync("token",token);
+                    const {
+                        token
+                    } = res.data.message;
+                    wx.setStorageSync("token", token);
+                    /* 返回上一个页面 */
+                    wx.navigateBack()
                 })
             }
+
         })
     }
 })
