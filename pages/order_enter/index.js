@@ -17,8 +17,11 @@ Page({
      */
     onLoad: function(options) {
         this.setData({
-                /* 地址 */
                 site: wx.getStorageSync("site") || {},
+                /* 商品信息 */
+                goods: wx.getStorageSync("goods"),
+                /* 总价格 */
+                allPrice: 0
             }),
             this.handleAllPrice()
     },
@@ -65,7 +68,43 @@ Page({
                 Authorization: wx.getStorageSync('token')
             }
         }).then(res => {
-            console.log(res)
+
+            /* 获取订单编号 */
+            const {
+                order_number
+            } = res.data.message
+            /* 请求支付的参数 */
+            request({
+                url: "/api/public/v1/my/orders/req_unifiedorder",
+                method: "POSt",
+                header: {
+                    Authorization: wx.getStorageSync("token")
+                },
+                data: {
+                    order_number
+                }
+            }).then(res => {
+                const {
+                    pay
+                } = res.data.message
+                /* 发起支付，调用微信原生的窗口 */
+                wx.requestPayment({
+                    ...pay,
+                    success: () => {
+                        /* 把本地的goods列表中selected为true的商品删除掉 */
+                        let goods = wx.getStorageSync("goods")
+                        Object.keys(goods).map(v => {
+                            delete goods[v].selected === true
+                            return goods[v]
+                        })
+                        wx.setStorageSync("goods", goods)
+                        wx.switchTab({
+                            url: '/pages/index/index',
+                        })
+
+                    }
+                })
+            })
         })
     }
 

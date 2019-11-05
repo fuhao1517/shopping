@@ -238,7 +238,6 @@ Page({
             return;
         }
         /* 判断是否有收货地址 */
-        console.log(this.data.site)
         if(this.data.site==={}){
             wx.showModal({
                 title: '提示',

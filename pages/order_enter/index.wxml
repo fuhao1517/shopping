@@ -14,7 +14,8 @@
 <!-- 购物车不为空 -->
 <view wx:if="{{goods}}">
     <view class="goods_lists">
-        <view class="goods_list" wx:for="{{goods}}" wx:key="{{index}}">
+        <view class="goods_list" wx:for="{{goods}}" wx:key="{{index}}"
+        wx:if="{{item.selected}}">
 
 
             <image src="{{item.goods_small_logo}}"></image>
