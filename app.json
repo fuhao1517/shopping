@@ -9,8 +9,14 @@
         "pages/goods_detail/index",
         "pages/order_enter/index",
         "pages/auth/index",
-        "pages/pay/index"
+        "pages/pay/index",
+        "pages/map/index"
     ],
+    "permission": {
+        "scope.userLocation":{
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#ff2d4a",

@@ -13,7 +13,7 @@
 
 <!-- 分类导航 -->
 <view class="menus">
-    <navigator url="" wx:for="{{menus}}" wx:key="{{index}}">
+    <navigator url="/pages/category/index" open-type="switchTab" wx:for="{{menus}}" wx:key="{{index}}">
         <image src="{{item.image_src}}"></image>
     </navigator>
 </view>

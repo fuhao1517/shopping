@@ -70,7 +70,7 @@ page {
 }
 
 .order {
-    margin-top: 100rpx;
+    margin-top: 80rpx;
     background: #fff;
 }
 
